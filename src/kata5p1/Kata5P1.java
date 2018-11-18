@@ -20,6 +20,9 @@ public class Kata5P1 {
         // TODO code application logic here
         SelectApp app = new SelectApp("C:\\Users\\hiper\\Documents\\NetBeansProjects\\Kata5P1\\PRUEBA.db");
         app.SelectAll("SELECT * FROM People");
+        CreateDataBase.create("C:\\Users\\hiper\\Documents\\NetBeansProjects\\Kata5P1\\mail.db");
+        CreateDataBase.addTable("C:\\Users\\hiper\\Documents\\NetBeansProjects\\Kata5P1\\mail.db"
+                ,"email");
     }
     
 }
