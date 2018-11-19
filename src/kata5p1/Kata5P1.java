@@ -5,6 +5,9 @@
  */
 package kata5p1;
 
+import java.util.Iterator;
+import java.util.List;
+
 /**
  *
  * @author hiper
@@ -22,7 +25,14 @@ public class Kata5P1 {
         app.SelectAll("SELECT * FROM People");
         CreateDataBase.create("C:\\Users\\hiper\\Documents\\NetBeansProjects\\Kata5P1\\mail.db");
         CreateDataBase.addTable("C:\\Users\\hiper\\Documents\\NetBeansProjects\\Kata5P1\\mail.db"
-                ,"email");
+               ,"email");
+        SelectApp app2 =  new SelectApp("C:\\Users\\hiper\\Documents\\NetBeansProjects\\Kata5P1\\mail.db");
+        List<String> Mail = MailListReader.read("C:\\Users\\hiper\\Documents\\NetBeansProjects\\Kata5P1\\email.txt");
+        Iterator iter = Mail.iterator();
+        while (iter.hasNext()){
+            app2.insert((String)iter.next(), "INSERT INTO email(direccion) VALUES(?)");
+        }
+        app2.SelectAll("SELECT * FROM email");
     }
     
 }
